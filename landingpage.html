@@ -230,18 +230,47 @@ function closeForm3() {
   <button class="dropdown-btn"><i class="fas fa-share-alt" style="margin-right: 20px;"></i>Share 
     <i class="fa fa-caret-down"></i>
   </button>
-  <div class="dropdown-container">
-    <button class="dropdown-btn">Resources
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-container">
-        <a href="#">Documents</a>
-        <a href="#">Softwares</a>
-        <a href="#">Files</a>
-        <a href="#">Images</a>
-        <a href="#">Videos</a>
-      </div>
-  </div>
+<div class="dropdown-container">
+    <button class="open-button" onclick="openshareform()">Resources</button>
+ <div class="form-popup" id="shareform">
+  <form action="shareresources.php" class="form-container" method="post" enctype="multipart/form-data">
+    
+    <hr class="new1">
+
+  <!-- code for selecting project in which we want to share resource-->
+  <!-- I am writing a sample code-->
+  <select for="project name" id="projecttype" name="projectname" style="margin-bottom:20px;">
+    <option value="projectname1">projectname1</option>
+    <option value="projectname2">projectname2</option>
+    </select>
+  
+  <!-- code for selecting project ENDS-->
+    <select for="resourcetype" id="projecttype" name="resourcetype" style="margin-bottom:35px;">
+    <option value="document">document</option>
+    <option value="software">software</option>
+    <option value="image">image</option>
+    <option value="video">video</option>
+    </select>
+    
+    <input  type="file" name="fileToUpload">
+    <br>
+    <textarea for="resourcedesc" class="projectdescription" name="resourcedesc" placeholder="Enter Resource Description (optional)" style="height:200px"></textarea>
+
+    <!-- <button type="submit" class="btn" name="projectup-btn">Submit</button> -->
+    <input type="submit" name="projectup-btn" class="btn" value="Share">
+    <button type="button" class="btn cancel" onclick="closeshareform()">Close</button>
+  </form>
+ </div>
+  <script>
+  function openshareform() {
+    document.getElementById("shareform").style.display = "block";
+  }
+
+  function closeshareform() {
+    document.getElementById("shareform").style.display = "none";
+  }
+  </script>
+</div>
 
 
   <button class="dropdown-btn"><i class="far fa-trash-alt" style="margin-right: 20px;"></i>End 
